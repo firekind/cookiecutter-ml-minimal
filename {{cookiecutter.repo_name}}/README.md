@@ -1,6 +1,9 @@
+# {{ cookiecutter.project_name }}
+{{ cookiecutter.project_short_description }}
+
+
 Directory Structure
 --------------------
-
     .
     ├── AUTHORS.md
     ├── LICENSE
@@ -8,6 +11,7 @@ Directory Structure
     ├── models  <- compiled model .pkl or HDFS or .pb format
     ├── config  <- any configuration files
     ├── data
+    	├── interim <- data in intermediate processing stage
     │   ├── interim <- data in intermediate processing stage
     │   ├── processed <- data after all preprocessing has been done
     │   └── raw <- original unmodified data acting as source of truth and provenance
@@ -16,8 +20,10 @@ Directory Structure
     ├── reports <- generated project artefacts eg. visualisations or tables
     │   └── figures
     └── src
-        ├── data-proc <- scripts for processing data eg. transformations, dataset merges etc. 
-        ├── viz  <- scripts for visualisation during EDA, modelling, error analysis etc. 
-        ├── modeling    <- scripts for generating models
+        ├── data <- scripts for processing data eg. transformations, dataset merges etc. 
+        ├── models <- scripts for generating models 
+        ├── tools <- additional tools
+   		├── visualization <- for visualization
     |--- environment.yml <- file with libraries and library versions for recreating the analysis environment
+    |--- Makefile
    
