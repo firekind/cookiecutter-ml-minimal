@@ -9,6 +9,7 @@ RAW_DATA_DIR = data/raw
 PROC_DATA_DIR = data/processed
 CONDA_PATH = {{ cookiecutter.conda_path }}
 ENV = {{ cookiecutter.env_name }}
+SHELL = /bin/bash
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -16,18 +17,18 @@ ENV = {{ cookiecutter.env_name }}
 
 ## Compile model
 compile:
-	$(CONDA_PATH) activate $(ENV)
+	source $(CONDA_PATH)/bin/activate $(ENV)
 	$(PYTHON_INTERPRETER) src/models/models.py compile dev_model
 
 
 ## Make Dataset
 data:
-	$(CONDA_PATH) activate $(ENV)
+	source $(CONDA_PATH)/bin/activate $(ENV)
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py $(RAW_DATA_DIR) $(PROC_DATA_DIR)
 	
 ## Train model
 fit:
-	$(CONDA_PATH) activate $(ENV)
+	source $(CONDA_PATH)/bin/activate $(ENV)
 	$(PYTHON_INTERPRETER) src/models/models.py fit --data_dir $(PROC_DATA_DIR) --model models/ --test True
 
 
@@ -38,7 +39,7 @@ clean:
 
 ## Lint using flake8
 lint:
-	$(CONDA_PATH) activate $(ENV)
+	source $(CONDA_PATH)/bin/activate $(ENV)
 	flake8 src
 	
 
