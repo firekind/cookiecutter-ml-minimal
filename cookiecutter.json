@@ -2,6 +2,9 @@
    	"project_name": "project_name",
     "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "project_short_description": "project template for reproducible ml",
+    "python_interpreter": "python3",
+    "conda_path": "/opt/miniconda3/bin/conda",
+    "env_name": "ml"
     "release_date": "{% now 'local' %}",
     "version": "0.1.0",
     "_extensions": ["jinja2_time.TimeExtension"]
